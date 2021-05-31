@@ -193,6 +193,10 @@ declare module 'react-native-nfc-manager' {
     getTag: () => Promise<TagEvent | null>;
     setAlertMessage: (alertMessage: string) => Promise<void>;
 
+    // explicit methods to simulate host pause & resume for RN testing purposes on android
+    simulateHostPause: () => void
+    simulateHostResume: () => void
+
     /**
      * common tech handler getters for both iOS / Android
      */

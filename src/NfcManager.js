@@ -82,6 +82,14 @@ class NfcManagerBase {
     return handleNativeException(callNative('getTag'));
   }
 
+  async simulateHostPause() {
+    return handleNativeException(callNative('simulateHostPause'));
+  }
+
+  async simulateHostResume() {
+    return handleNativeException(callNative('simulateHostResume'));
+  }
+
   setEventListener(name, callback) {
     const allNfcEvents = Object.keys(NfcEvents).map((k) => NfcEvents[k]);
     if (allNfcEvents.indexOf(name) === -1) {

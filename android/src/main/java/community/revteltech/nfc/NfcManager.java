@@ -984,6 +984,22 @@ class NfcManager extends ReactContextBaseJavaModule implements ActivityEventList
         enableDisableForegroundDispatch(false);
     }
 
+    @ReactMethod
+    public void simulateHostPause() {
+        Log.d(LOG_TAG, "EXPLICITLY simulating host pause");
+        isResumed = false;
+        enableDisableForegroundDispatch(false);
+    }
+
+    @ReactMethod
+    public void simulateHostResume() {
+        Log.d(LOG_TAG, "EXPLICITLY simulating host resume");
+        isResumed = true;
+        if (isForegroundEnabled) {
+            enableDisableForegroundDispatch(true);
+        }
+    }
+
     @Override
     public void onHostDestroy() {
         Log.d(LOG_TAG, "onDestroy");
